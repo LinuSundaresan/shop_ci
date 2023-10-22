@@ -465,7 +465,6 @@ $( document ).ready(function() {
  $('.add-cart-button').click(function() {
         var product_id = $(this).attr('data-product-id');
         var quantity = 1; 
-
         
         $.ajax({
             type: 'POST',
