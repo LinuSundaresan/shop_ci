@@ -1,8 +1,4 @@
-<?php include 'includes/header.php'; 
-
-// print_r($category_details);
-//       die();
-      ?>
+<?php include 'includes/header.php'; ?>
 
 <!-- ============================================== HEADER : END ============================================== -->
 <div class="breadcrumb">
@@ -202,15 +198,17 @@
             <!-- /.col -->
             <div class="col col-sm-6 col-md-4 col-xs-6 col-lg-4 text-right">
               <div class="pagination-container">
-                <ul class="list-inline list-unstyled">
-                  <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                <ul class="list-inline list-unstyled pagination-links">
+                  <!-- <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>
                   <li><a href="#">1</a></li>
                   <li class="active"><a href="#">2</a></li>
                   <li><a href="#">3</a></li>
                   <li><a href="#">4</a></li>
-                  <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                  <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li> -->
                 </ul>
-                <!-- /.list-inline --> 
+
+
+
               </div>
               <!-- /.pagination-container --> </div>
             <!-- /.col --> 
@@ -875,24 +873,53 @@
 </div>
 <!-- /.body-content --> 
 
+
+<script>
+
+
+</script>
+
+
+
 <script>
   $(document).ready(function() {
-    var base_url = "<?php echo base_url();?>";
+    var base_url = "<?php echo base_url()?>";
+
     var category_id = "<?php echo $this->uri->segment('3')?>";
-    var post_data = {
-      category_id: category_id,
-    }; 
-    $.ajax({
-      url: base_url + "home/get_products_by_category",
-      type: 'POST',
-      data: post_data,
-      dataType: "html",
-      async: false,
-      success: function(data) {
-        $('.category_item').html(data);
-      }
-    });
+    var currentPage = <?php echo $this->uri->segment('4') ?>;
+    if(currentPage == ""){
+      currentPage = 1;
+    }
+    var itemsPerPage = 6;
+    var offset = (currentPage - 1) * itemsPerPage;
+    get_all_products(offset, currentPage , category_id);
+
+    function get_all_products(offset , currentPage , category_id) {
+      $.ajax({
+          url: base_url + "products/get_products_by_category/"+ currentPage,
+          type: 'POST',
+          data: { 
+            category_id: category_id,
+            pageno: offset },
+            dataType: "json",
+            success: function(data) {
+                $('.category_item').html(data.products);
+                $('.pagination-links').html(data.pagination);
+            }
+      });
+
+    }  
+
+  
+  
+
   });
+
+
+  
+
+
+  
 </script>
 
 <?php include 'includes/footer.php';?>

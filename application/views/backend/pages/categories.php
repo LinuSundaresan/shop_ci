@@ -1,17 +1,4 @@
 <!DOCTYPE html>
-
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
-
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
-
-=========================================================
- -->
-<!-- beautify ignore:start -->
 <html
   lang="en"
   class="light-style layout-menu-fixed"
@@ -116,52 +103,15 @@
                         <th>Actions</th>
                       </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0">
-                      <tr>
-                        <td><input type="checkbox" name="select" class="select_multiple dt-checkboxes form-check-input" /></td>
-                        <td>Clothing</td>
-                        <td>
-                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Lilian Fuller"
-                            >
-                              <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Sophia Wilkerson"
-                            >
-                              <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Christina Parker"
-                            >
-                              <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                          </ul>
-                        </td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
-                        <td>
-                            <div class="d-flex align-items-sm-center justify-content-sm-center">
-                                <button class="btn btn-sm btn-icon delete-record me-2" fdprocessedid="bp7e3l"><i class="bx bx-trash"></i></button>
-                                <button class="btn btn-sm btn-icon" fdprocessedid="vmme5"><i class="bx bx-edit"></i></button>
-                            </div>
-                        </td>
-                      </tr>
+                    <tbody class="table-border-bottom-0 category_list">
+                      
                       
                     </tbody>
                   </table>
+
+                  <div class="pagination">
+                        
+                    </div>
                 </div>
               </div>
               <!--/ Basic Bootstrap Table -->
@@ -191,7 +141,6 @@
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
-
     <?php
     $absolute_path = FCPATH . 'application/views/backend/pages/includes/script_bottom.php';
     if (file_exists($absolute_path)) {
@@ -201,7 +150,66 @@
     }
     ?>
 
-    <
+    
+
+    <script>
+        $(document).ready(function() {
+            var currentPage = <?php echo $this->uri->segment(4); ?>;
+            var itemsPerPage = 3;
+            var offset = (currentPage - 1) * itemsPerPage;
+            get_all_categories(offset, currentPage);
+
+
+
+
+
+            $('.add-cart-button').click(function() {
+              alert("hi");
+            var product_id = $(this).attr('data-product-id');
+            var quantity = 1; 
+            
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url('products/add_to_cart'); ?>',
+                data: { product_id: product_id, quantity: quantity },
+                success: function(response) {
+                    if (response === 'success') {
+                        alert('Product added to cart.');
+                    } else {
+                        alert('Failed to add the product to the cart.');
+                    }
+                }
+            });
+    });
+
+        });
+
+
+        function get_all_categories(offset , currentPage) {
+            $.ajax({
+                url: base_url + "backend/products/get_all_categories/"+ currentPage,
+                type: 'POST',
+                data: { pageno: offset },
+                dataType: "json",
+                success: function(data) {
+                    console.log(data);
+                    $('.category_list').html(data.categories);
+                    $('.pagination').html(data.pagination);
+
+                    // Remove any existing 'active' class from all pages
+                    $('.pagination li').removeClass('active');
+                    // Add 'active' class to the current page
+                    $('.pagination li a').filter(function() {
+                        return parseInt($(this).text()) === currentPage;
+                    }).parent('li').addClass('active');
+                }
+            });
+        }
+
+
+
+        
+    </script>
     
   </body>
 </html>

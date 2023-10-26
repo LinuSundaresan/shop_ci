@@ -30,7 +30,6 @@
             </footer>
 
             <script>
-                var baseUrl = "<?php echo base_url(); ?>";
-                alert(baseUrl);
+                var base_url = "<?php echo base_url(); ?>";
             </script>
             

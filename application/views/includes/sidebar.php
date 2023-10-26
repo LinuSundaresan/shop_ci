@@ -6,7 +6,7 @@
         
         <!-- ================================== TOP NAVIGATION ================================== -->
         <div class="side-menu animate-dropdown outer-bottom-xs">
-          <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
+          <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories 1</div>
           <nav class="yamm megamenu-horizontal">
             <ul class="nav">
               <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-shopping-bag" aria-hidden="true"></i>Clothing</a>
@@ -350,7 +350,7 @@
         
         <!-- ============================================== HOT DEALS ============================================== -->
         <div class="sidebar-widget hot-deals outer-bottom-xs">
-          <h3 class="section-title">Hot deals</h3>
+          <h3 class="section-title">Hot deals 1</h3>
           <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
             <div class="item">
               <div class="products">

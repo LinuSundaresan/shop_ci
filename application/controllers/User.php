@@ -36,12 +36,6 @@ class User extends CI_Controller {
 
 		$res = $this->register->save_user($data);
 		echo json_encode($res);
-
-		// if($res){
-		// 	$this->session->set_flashdata('save', 'Success');
-		// 	redirect("user/register");
-		// }
-		
 	}
 
 
@@ -61,8 +55,6 @@ class User extends CI_Controller {
 			'password' => $password
 		);
 
-		//$res = $this->login->get_user($where);
-
 		if ($this->login->get_user($where)) {
 			$res = $this->login->get_user($where);
 			$the_session = array("login_id" => $res[0]['login_id'], "name" => $res[0]['username'] );
@@ -77,10 +69,23 @@ class User extends CI_Controller {
 
 	public function dashboard()
 	{
-		if($this->session->userdata('user_id')!=""){
-			//echo "You are logged in  " . $this->session->userdata('name');
+		if($this->session->userdata('login_id')!=""){
 			$data['username'] = $this->session->userdata('name');
-			$this->load->view('dashboard.php', $data);
+			$this->load->view('dashboard', $data);
+		}
+		else{
+			redirect('user/login');
+		}
+	}
+
+	public function cart()
+	{
+		if($this->session->userdata('login_id')!=""){
+			$this->load->model('cart_model', 'cart');
+			$data['username'] = $this->session->userdata('name');
+
+			$data['cart_products'] = $this->cart->get_user_carted_products( $this->session->userdata('login_id'));
+			$this->load->view('cart', $data);
 		}
 		else{
 			redirect('user/login');
@@ -88,7 +93,7 @@ class User extends CI_Controller {
 	}
 
 	public function logout(){
-		$the_session = array("user_id" =>"" );
+		$the_session = array("login_id" =>"" );
 		$this->session->set_userdata($the_session);
 		redirect('user/dashboard');
 	}

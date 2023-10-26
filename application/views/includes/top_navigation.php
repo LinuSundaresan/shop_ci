@@ -5,7 +5,10 @@
 
 
             <?php foreach($categories as $category){ ?>
-              <li class="dropdown menu-item"> <a href="<?= base_url();?>category/<?= $category['category_id']?>" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-shopping-bag" aria-hidden="true"></i><?php echo $category['category_name']; ?></a>
+              <!-- <li class="dropdown menu-item"> <a href="<?= base_url();?>category/<?= $category['category_id']?>" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-shopping-bag" aria-hidden="true"></i><?php echo $category['category_name']; ?></a> -->
+
+              <li class="dropdown menu-item"> <a href="<?= base_url();?>products/categories/<?= $category['category_id']?>/1"><i class="icon fa fa-shopping-bag" aria-hidden="true"></i><?php echo $category['category_name']; ?></a>
+
                 <ul class="dropdown-menu mega-menu">
                   <li class="yamm-content">
                     <div class="row">

@@ -500,13 +500,9 @@ function get_latest_products(type){
 
 
 function get_featured_products(){
-  // var post_data = {
-  //   category_type: type,
-  // }; 
   $.ajax({
     url: base_url + "home/get_featured_products",
     type: 'POST',
-    //data: post_data,
     dataType: "html",
     async: false,
     success: function(data) {

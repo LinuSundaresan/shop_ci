@@ -70,7 +70,7 @@
                   <div class="action">
                     <div class="add-cart-button btn-group">
                       <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                      <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                      <button class="btn btn-primary cart-btn add-cart-button" type="button">Add to cart</button>
                     </div>
                   </div>
                   <!-- /.action --> 
@@ -119,7 +119,7 @@
                   <div class="action">
                     <div class="add-cart-button btn-group">
                       <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                      <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                      <button class="btn btn-primary cart-btn add-cart-button" type="button">Add to cart</button>
                     </div>
                   </div>
                   <!-- /.action --> 
@@ -168,7 +168,7 @@
                   <div class="action">
                     <div class="add-cart-button btn-group">
                       <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                      <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                      <button class="btn btn-primary cart-btn add-cart-button" type="button">Add to cart</button>
                     </div>
                   </div>
                   <!-- /.action --> 
@@ -320,7 +320,7 @@
 											<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
 											    <i class="fa fa-heart"></i>
 											</a>
-											<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Add to Compare" href="#">
+											<a class="btn btn-primary add-cart-button" data-toggle="tooltip" data-placement="right" title="Add to Compare" href="#">
 											   <i class="fa fa-signal"></i>
 											</a>
 											<a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="E-mail" href="#">
@@ -352,7 +352,7 @@
 									</div>
 
 									<div class="add-btn">
-										<a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+										<a class="btn btn-primary add-cart-button" data-product-id=<?= $products->product_id; ?>><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
 									</div>
 
 									
@@ -566,7 +566,7 @@
 							<button class="btn btn-primary icon" data-toggle="dropdown" type="button">
 								<i class="fa fa-shopping-cart"></i>													
 							</button>
-							<button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+							<button class="btn btn-primary cart-btn add-cart-button" type="button">Add to cart</button>
 													
 						</li>
 	                   
@@ -622,7 +622,7 @@
 							<button class="btn btn-primary icon" data-toggle="dropdown" type="button">
 								<i class="fa fa-shopping-cart"></i>													
 							</button>
-							<button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+							<button class="btn btn-primary cart-btn add-cart-button" type="button">Add to cart</button>
 													
 						</li>
 	                   
@@ -678,7 +678,7 @@
 							<button class="btn btn-primary icon" data-toggle="dropdown" type="button">
 								<i class="fa fa-shopping-cart"></i>													
 							</button>
-							<button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+							<button class="btn btn-primary cart-btn add-cart-button" type="button">Add to cart</button>
 													
 						</li>
 	                   
@@ -734,7 +734,7 @@
 							<button class="btn btn-primary icon" data-toggle="dropdown" type="button">
 								<i class="fa fa-shopping-cart"></i>													
 							</button>
-							<button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+							<button class="btn btn-primary cart-btn add-cart-button" type="button">Add to cart</button>
 													
 						</li>
 	                   
@@ -790,7 +790,7 @@
 							<button class="btn btn-primary icon" data-toggle="dropdown" type="button">
 								<i class="fa fa-shopping-cart"></i>													
 							</button>
-							<button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+							<button class="btn btn-primary cart-btn add-cart-button" type="button">Add to cart</button>
 													
 						</li>
 	                   
@@ -846,7 +846,7 @@
 							<button class="btn btn-primary icon" data-toggle="dropdown" type="button">
 								<i class="fa fa-shopping-cart"></i>													
 							</button>
-							<button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+							<button class="btn btn-primary cart-btn add-cart-button" type="button">Add to cart</button>
 													
 						</li>
 	                   

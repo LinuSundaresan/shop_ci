@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="<?=base_url()?>backend/admin/dashboard" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg
                   width="25"
@@ -120,7 +120,7 @@
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="<?php echo base_url();?>backend/products/categories" class="menu-link">
+                  <a href="<?php echo base_url();?>backend/products/categories/1" class="menu-link">
                     <div data-i18n="Without menu">Category</div>
                   </a>
                 </li>

@@ -42,17 +42,17 @@
       <div class="header-top-inner">
         <div class="cnt-account">
           <ul class="list-unstyled">
-            <li class="myaccount"><a href="#"><span>My Account</span></a></li>
-            <li class="wishlist"><a href="#"><span>Wishlist</span></a></li>
-            <li class="header_cart hidden-xs"><a href="#"><span>My Cart</span></a></li>
-            <li class="check"><a href="#"><span>Checkout</span></a></li>
+            <li class="myaccount"><a href="<?= base_url();?>user/profile"><span>My Account</span></a></li>
+            <li class="wishlist"><a href="<?= base_url();?>user/wishlist#"><span>Wishlist</span></a></li>
+            <li class="header_cart hidden-xs"><a href="<?= base_url();?>user/cart"><span>My Cart</span></a></li>
+            <li class="check"><a href="<?= base_url();?>user/checkout"><span>Checkout</span></a></li>
 
             <?php if($this->session->userdata('login_id')){
               ?>
-              <li class="login"><a href="#"><span><?= $this->session->userdata('name');?></span></a></li>
+              <li class="login"><a href="<?= base_url();?>user/profile"><span><?= $this->session->userdata('name');?></span></a></li>
               <?php } else{ 
                 ?>
-              <li class="login"><a href="#"><span>Login</span></a></li>
+              <li class="login"><a href="<?= base_url();?>user/login"><span>Login</span></a></li>
               <?php } ?>
             
             
@@ -93,7 +93,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-3 logo-holder"> 
           <!-- ============================================================= LOGO ============================================================= -->
-          <div class="logo"> <a href="home.html"> <img src="<?php echo base_url();?>assets/images/logo.png" alt="logo"> </a> </div>
+          <div class="logo"> <a href="<?=base_url()?>home/dashboard"> <img src="<?php echo base_url();?>assets/images/logo.png" alt="logo"> </a> </div>
           <!-- /.logo --> 
           <!-- ============================================================= LOGO : END ============================================================= --> </div>
         <!-- /.logo-holder -->
@@ -186,8 +186,8 @@
           <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
             <div class="nav-outer">
               <ul class="nav navbar-nav">
-                <li class="active dropdown"> <a href="home.html">Home</a> </li>
-                <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Clothing</a>
+                <li class="active dropdown"> <a href="<?=base_url()?>home/dashboard">Home</a> </li>
+                <li class="dropdown yamm mega-menu"> <a href="<?=base_url()?>home/dashboard" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Clothing</a>
                   <ul class="dropdown-menu container">
                     <li>
                       <div class="yamm-content ">
@@ -345,7 +345,7 @@
                         <div class="row">
                           <div class="col-xs-12 col-menu">
                             <ul class="links">
-                              <li><a href="home.html">Home</a></li>
+                              <li><a href="<?= base_url();?>home/dashboard">Home</a></li>
                               <li><a href="category.html">Category</a></li>
                               <li><a href="detail.html">Detail</a></li>
                               <li><a href="shopping-cart.html">Shopping Cart Summary</a></li>

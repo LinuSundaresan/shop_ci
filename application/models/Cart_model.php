@@ -26,4 +26,16 @@ class Cart_model extends CI_Model {
         $this->db->update('products', $data );
     }
 
+    public function get_user_carted_products( $login_id ){
+        $this->db->select('shop_cart.*, products.*, SUM(shop_cart.quantity) AS quantity');
+        $this->db->from('shop_cart');
+        $this->db->join('products', 'products.product_id = shop_cart.product_id', 'LEFT');
+        $this->db->where('login_id', $login_id );
+        $this->db->group_by('shop_cart.product_id');
+        $q = $this->db->get(); 
+        //echo $this->db->last_query();
+        //exit;
+        return $q->result_array();
+    }
+
 }
